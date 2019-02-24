@@ -1,0 +1,30 @@
+.barsContainer {
+  display: grid;
+  grid: auto/auto 1fr;
+}
+
+.barItem {
+  display: grid;
+}
+
+.barTitle {
+  font-size: 0.8rem;
+  grid-column: 1/2;
+  align-self: center;
+}
+
+.barRow {
+  grid-column: 2/3;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+
+.bar {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 2px;
+  background: var(--color-brand-c);
+  filter: blur(1px);
+}
