@@ -19,14 +19,20 @@ function Bar({ max, bar: { values, name } }) {
   );
 }
 
-export default function BarsWrapper({ bars }) {
-  const maxItem = Math.max(...bars.map(barItem => Math.max(...barItem.values)));
+export default function BarsList({ bars }) {
+  if (bars && bars.length > 0) {
+    const maxItem = Math.max(
+      ...bars.map(barItem => Math.max(...barItem.values))
+    );
 
-  return (
-    <div className={styles.barsContainer}>
-      {bars.map(bar => (
-        <Bar key={bar.id} max={maxItem} bar={bar} />
-      ))}
-    </div>
-  );
+    return (
+      <div className={styles.barsContainer}>
+        {bars.map(bar => (
+          <Bar key={bar.id} max={maxItem} bar={bar} />
+        ))}
+      </div>
+    );
+  } else {
+    return <div>Nothing here</div>;
+  }
 }

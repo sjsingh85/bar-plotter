@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import createRootReducer from './reducers';
 import { reduxLogger } from '../services/reduxLogger';
 
-export default function configureStore(history, initialState) {
+export default function configureStore(initialState) {
   const middlewares = [thunk];
 
   if (process.env.NODE_ENV !== 'production') {
@@ -25,7 +25,7 @@ export default function configureStore(history, initialState) {
   }
 
   return createStore(
-    createRootReducer(history),
+    createRootReducer(),
     initialState,
     composeEnhancers(applyMiddleware(...middlewares), ...enhancers)
   );

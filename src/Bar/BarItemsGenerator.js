@@ -2,22 +2,30 @@ import uuid from 'uuid/v4';
 
 let ITEMS_COUNT = 26;
 
+export class BarItemValue {
+  key = uuid();
+  barValue = 0;
+
+  constructor(value) {
+    this.barValue = value;
+  }
+}
+
 function valuesGenerator() {
   let returnValues = [];
 
   for (let i = 0; i < ITEMS_COUNT; i++) {
-    returnValues.push(Math.round(Math.random() * 1000));
+    returnValues.push(new BarItemValue(Math.round(Math.random() * 1000)));
   }
 
   return returnValues;
 }
 
-class BarItem {
+export class BarItem {
   id = uuid();
   values = [];
   name = '';
   constructor(num) {
-    console.log(num);
     this.values = valuesGenerator();
     this.name = `Random Item ${num || Math.round(Math.random() * 1000)}`;
   }

@@ -1,9 +1,15 @@
 import React from 'react';
-import getBarItems from './BarItemsGenerator';
-import Bar from './Bar';
+import { connect } from 'react-redux';
+import BarsEditor from './BarsEditor';
+import BarsList from './BarsList';
 
-export default function BarContainer() {
-  const bars = getBarItems(10);
-
-  return <Bar bars={bars} />;
+function BarContainer({ bars }) {
+  return (
+    <React.Fragment>
+      <BarsEditor bars={bars} />
+      <BarsList bars={bars} />
+    </React.Fragment>
+  );
 }
+
+export default connect(state => ({ bars: state.bars }))(BarContainer);
