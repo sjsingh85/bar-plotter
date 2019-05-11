@@ -28,3 +28,17 @@
   background: var(--color-brand-c);
   filter: blur(1px);
 }
+
+.barsItemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+.barsItemContainer span {
+  text-transform: uppercase;
+  padding-right: 20px;
+}
+
+.barValueButton {
+  flex-grow: 1;
+}
